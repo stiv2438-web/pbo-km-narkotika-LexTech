@@ -1,12 +1,11 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
- * Class KnowledgeRepository digunakan untuk menyimpan dan mengelola
- * kumpulan data Putusan menggunakan ArrayList.
+ * Repository untuk menyimpan dan mengelola daftar putusan.
+ * Class ini menangani tambah data, pencarian, filter, sorting,
+ * dan hapus data menggunakan ArrayList.
  */
 public class KnowledgeRepository {
 

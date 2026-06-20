@@ -3,9 +3,10 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Class StatistikPutusan digunakan untuk menghitung ringkasan statistik
- * dari seluruh data putusan, seperti rata-rata vonis, rata-rata denda,
- * jenis narkotika terbanyak, dan distribusi peran terdakwa.
+ * Class untuk menghitung statistik putusan narkotika.
+ * Statistik meliputi total putusan, rata-rata vonis,
+ * rata-rata denda, jenis narkotika terbanyak,
+ * dan distribusi peran terdakwa.
  */
 public class StatistikPutusan {
 
