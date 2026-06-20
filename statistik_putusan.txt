@@ -1,0 +1,6 @@
+=== LAPORAN STATISTIK PUTUSAN ===
+Total Putusan              : 50
+Rata-rata Vonis            : 30.96 bulan
+Rata-rata Denda            : Rp5.0E8
+Jenis Narkotika Terbanyak  : Sabu
+Distribusi Peran           : Bandar: 13, Kurir: 19, Pengguna: 18, Penyimpan: 0, Lainnya: 0
