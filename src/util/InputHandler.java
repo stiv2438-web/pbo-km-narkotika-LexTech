@@ -3,8 +3,8 @@ package util;
 import java.util.Scanner;
 
 /**
- * Class InputHandler digunakan untuk memvalidasi input pengguna
- * agar program tidak crash ketika input tidak sesuai.
+ * Utility class untuk membaca dan memvalidasi
+ * input dari pengguna melalui console.
  */
 public class InputHandler {
 
