@@ -1,9 +1,10 @@
 package model;
 
 /**
- * Class Putusan merepresentasikan data putusan pengadilan narkotika.
- * Class ini menyimpan informasi perkara, terdakwa, jenis narkotika,
- * vonis hukuman, denda, dan peran terdakwa.
+ * Model utama yang merepresentasikan data putusan pengadilan narkotika.
+ * Class ini menyimpan nomor perkara, nama terdakwa,
+ * pengadilan, jenis narkotika, vonis, denda,
+ * dan peran terdakwa.
  */
 public class Putusan extends EntitasHukum implements Printable {
 
