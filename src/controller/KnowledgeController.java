@@ -8,22 +8,13 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 
 /**
- * Class KnowledgeController berfungsi sebagai penghubung antara view dan model.
+ * Class KnowledgeController berfungsi sebagai penghubung antara View dan Model.
  * Controller mengatur proses tambah data, pencarian, filter, statistik,
  * penghapusan data, sorting, dan ekspor laporan.
  */
 public class KnowledgeController {
 
     private KnowledgeRepository repo = new KnowledgeRepository();
-
-    /**
-     * Menambahkan data putusan baru ke repository.
-     *
-     * @param data array data putusan yang akan ditambahkan
-     * @return true jika berhasil, false jika gagal
-     * @author Ebby Regista Sari Hatuina
-     */
-
 
     public boolean tambahPutusan(String[] data) {
         try {
@@ -70,13 +61,7 @@ public class KnowledgeController {
             return false;
         }
     }
-    /**
-     * Menentukan peran terdakwa berdasarkan vonis.
-     *
-     * @param vonis lama vonis dalam bulan
-     * @return peran terdakwa (Bandar, Kurir, atau Pengguna)
-     * @author Ebby Regista Sari Hatuina
-     */
+
     private String tentukanPeranDefault(int vonis) {
         if (vonis >= 40) {
             return "Bandar";
@@ -86,115 +71,51 @@ public class KnowledgeController {
             return "Pengguna";
         }
     }
-    /**
-     * Mengambil semua data putusan dari repository.
-     *
-     * @return daftar semua putusan
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public ArrayList<Putusan> getSemuaPutusan() {
         return repo.getDaftarSemua();
     }
-    /**
-     * Mencari putusan berdasarkan nomor perkara.
-     *
-     * @param nomor nomor perkara yang dicari
-     * @return putusan yang ditemukan atau null
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public Putusan cariByNomor(String nomor) {
         return repo.cariByNomor(nomor);
     }
-    /**
-     * Mencari putusan berdasarkan nama terdakwa.
-     *
-     * @param nama nama terdakwa yang dicari
-     * @return daftar putusan yang ditemukan
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public ArrayList<Putusan> cariByNama(String nama) {
 
         return repo.cariByNama(nama);
     }
-    /**
-     * Memfilter putusan berdasarkan jenis narkotika.
-     *
-     * @param jenis jenis narkotika yang difilter
-     * @return daftar putusan yang sesuai
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public ArrayList<Putusan> filterByJenis(String jenis) {
 
         return repo.filterByJenis(jenis);
     }
-    /**
-     * Memfilter putusan berdasarkan nama pengadilan.
-     *
-     * @param pengadilan nama pengadilan yang difilter
-     * @return daftar putusan yang sesuai
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public ArrayList<Putusan> filterByPengadilan(String pengadilan) {
         return repo.filterByPengadilan(pengadilan);
     }
-    /**
-     * Memfilter putusan berdasarkan rentang vonis.
-     *
-     * @param min vonis minimum dalam bulan
-     * @param max vonis maksimum dalam bulan
-     * @return daftar putusan yang sesuai
-     * @author Ebby Regista Sari Hatuina
-     */
     public ArrayList<Putusan> filterByRentangVonis(int min, int max) {
         return repo.filterByRentangVonis(min, max);
     }
-    /**
-     * Mengurutkan putusan berdasarkan vonis.
-     *
-     * @return daftar putusan yang sudah diurutkan
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public ArrayList<Putusan> sortByVonis() {
         return repo.sortByVonis();
     }
-    /**
-     * Menghapus putusan berdasarkan nomor perkara.
-     *
-     * @param nomor nomor perkara yang akan dihapus
-     * @return true jika berhasil, false jika tidak ditemukan
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public boolean hapusPutusan(String nomor) {
 
         return repo.hapus(nomor);
     }
-    /**
-     * Mengambil total jumlah data putusan.
-     *
-     * @return total jumlah data
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public int totalData() {
 
         return repo.getTotalData();
     }
-    /**
-     * Mengambil statistik dari seluruh data putusan.
-     *
-     * @return objek StatistikPutusan
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public StatistikPutusan getStatistik() {
 
         return new StatistikPutusan(repo.getDaftarSemua());
     }
-    /**
-     * Mengekspor statistik putusan ke file teks.
-     *
-     * @param namaFile nama file tujuan ekspor
-     * @return true jika berhasil, false jika gagal
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public boolean exportStatistikKeTxt(String namaFile) {
         try {
             StatistikPutusan statistik = getStatistik();
@@ -209,11 +130,7 @@ public class KnowledgeController {
             return false;
         }
     }
-    /**
-     * Memuat data awal putusan ke dalam repository.
-     *
-     * @author Ebby Regista Sari Hatuina
-     */
+
     public void muatDataAwal() {
 
         if (repo.getTotalData() > 0) {
