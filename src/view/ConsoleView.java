@@ -9,17 +9,37 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Class ConsoleView berfungsi sebagai antarmuka berbasis console
- * untuk menampilkan menu dan menerima input dari pengguna.
+ * ConsoleView bertanggung jawab menampilkan seluruh antarmuka
+ * aplikasi melalui terminal.
+ *
+ * Class ini menangani tampilan menu, daftar putusan,
+ * serta seluruh output yang diterima pengguna.
+ *
+ * @author Earland Khansadevlin Herdian
  */
 public class ConsoleView {
 
     private Scanner sc = new Scanner(System.in);
     private KnowledgeController controller = new KnowledgeController();
 
+    /**
+     * Membuat objek ConsoleView dan memuat seluruh data
+     * putusan yang tersimpan sebelum aplikasi dijalankan.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     public ConsoleView() {
         controller.muatDataAwal();
     }
+
+    /**
+     * Menjalankan aplikasi berbasis terminal.
+     *
+     * Method ini akan terus menampilkan menu utama hingga
+     * pengguna memilih keluar dari aplikasi.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     public void mulai() {
         int pilihan;
 
@@ -68,11 +88,20 @@ public class ConsoleView {
                     System.out.println("Pilihan tidak tersedia.");
             }
 
-
         } while (pilihan != 12);
     }
 
+    /**
+     * Menampilkan menu utama aplikasi pada terminal.
+     *
+     * Menu berisi seluruh fitur yang dapat dipilih pengguna,
+     * seperti tambah data, pencarian, filter, statistik,
+     * ekspor laporan, penghapusan data, dan keluar aplikasi.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void tampilkanMenu() {
+
         System.out.println("\n=== LexTech KMS Narkotika ===");
         System.out.println("1. Tambah Putusan");
         System.out.println("2. Tampilkan Semua Putusan");
@@ -88,6 +117,12 @@ public class ConsoleView {
         System.out.println("12. Keluar");
     }
 
+    /**
+     * Meminta pengguna mengisi data putusan baru
+     * kemudian meneruskannya ke controller untuk disimpan.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void tambahData() {
         String nomor = InputHandler.validasiString("Nomor Perkara: ", sc);
         String pengadilan = InputHandler.validasiString("Pengadilan: ", sc);
@@ -116,6 +151,11 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Menampilkan seluruh data putusan yang tersedia.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void tampilkanSemua() {
         ArrayList<Putusan> daftar = controller.getSemuaPutusan();
 
@@ -131,6 +171,12 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Melakukan pencarian putusan berdasarkan
+     * nomor perkara.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void cariNomor() {
         String nomor = InputHandler.validasiString("Masukkan nomor perkara: ", sc);
 
@@ -144,6 +190,12 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Melakukan pencarian putusan berdasarkan
+     * nama terdakwa.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void cariNama() {
         String nama = InputHandler.validasiString("Masukkan nama terdakwa: ", sc);
 
@@ -161,6 +213,12 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Menampilkan putusan berdasarkan
+     * jenis narkotika yang dipilih pengguna.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void filterJenis() {
         String jenis = InputHandler.validasiString("Masukkan jenis narkotika: ", sc);
 
@@ -178,6 +236,12 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Menampilkan putusan berdasarkan
+     * nama pengadilan.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void filterPengadilan() {
         String pengadilan = InputHandler.validasiString("Masukkan nama pengadilan: ", sc);
 
@@ -195,6 +259,12 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Menampilkan putusan yang memiliki
+     * lama vonis pada rentang tertentu.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void filterRentangVonis() {
         int min = InputHandler.validasiInt("Masukkan vonis minimum (bulan): ", sc);
         int max = InputHandler.validasiInt("Masukkan vonis maksimum (bulan): ", sc);
@@ -213,6 +283,12 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Menampilkan seluruh data putusan yang telah
+     * diurutkan berdasarkan lama vonis.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void sortByVonis() {
         ArrayList<Putusan> hasil = controller.sortByVonis();
 
@@ -228,6 +304,12 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Menampilkan ringkasan statistik seluruh
+     * data putusan yang tersedia.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void tampilkanStatistik() {
         StatistikPutusan statistik = controller.getStatistik();
 
@@ -235,6 +317,12 @@ public class ConsoleView {
         statistik.tampilkanLaporan();
     }
 
+    /**
+     * Mengekspor laporan statistik putusan
+     * ke dalam file teks (.txt).
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void exportStatistik() {
         String namaFile = "statistik_putusan.txt";
 
@@ -247,6 +335,12 @@ public class ConsoleView {
         }
     }
 
+    /**
+     * Menghapus data putusan berdasarkan
+     * nomor perkara yang dimasukkan pengguna.
+     *
+     * @author Earland Khansadevlin Herdian
+     */
     private void hapusData() {
         String nomor = InputHandler.validasiString("Masukkan nomor perkara yang ingin dihapus: ", sc);
 
