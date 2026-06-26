@@ -1,11 +1,14 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
- * Repository untuk menyimpan dan mengelola daftar putusan.
- * Class ini menangani tambah data, pencarian, filter, sorting,
- * dan hapus data menggunakan ArrayList.
+ * Repository untuk menyimpan dan mengelola
+ * seluruh data putusan menggunakan ArrayList.
+ * Class ini menyediakan fungsi tambah data,
+ * pencarian, filter, sorting, dan penghapusan.
  */
 public class KnowledgeRepository {
 
@@ -43,6 +46,7 @@ public class KnowledgeRepository {
 
         return hasil;
     }
+
     public ArrayList<Putusan> filterByJenis(String jenis) {
         ArrayList<Putusan> hasil = new ArrayList<>();
 
