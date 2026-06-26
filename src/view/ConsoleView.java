@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Class ConsoleView berfungsi sebagai antarmuka berbasis console
- * untuk menampilkan menu dan menerima input dari pengguna.
+ * Menampilkan antarmuka berbasis console dan hasil operasi sistem.
  */
+
 public class ConsoleView {
 
     private Scanner sc = new Scanner(System.in);

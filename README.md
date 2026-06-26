@@ -58,3 +58,7 @@ Kelompok: LexTech
 - Stiven Cahyono - 202510370110100 - Model Developer
 - Earland Khansadevlin Herdian - 202510370110098 - View Developer 
 - Ebby Regista Sari Hatuina - 202510370110068 - Controller Engineer 
+
+## Catatan
+
+Project ini dikembangkan menggunakan Java OOP dengan arsitektur MVC sebagai tugas besar mata kuliah Pemrograman Berorientasi Objek.
