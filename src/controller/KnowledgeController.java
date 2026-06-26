@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 
 /**
- * Class KnowledgeController berfungsi sebagai penghubung antara View dan Model.
+ * Class KnowledgeController berfungsi sebagai penghubung antara view dan model.
  * Controller mengatur proses tambah data, pencarian, filter, statistik,
  * penghapusan data, sorting, dan ekspor laporan.
  */
