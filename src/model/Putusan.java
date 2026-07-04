@@ -2,9 +2,8 @@ package model;
 
 /**
  * Model utama yang merepresentasikan data putusan pengadilan narkotika.
- * Class ini menyimpan nomor perkara, nama terdakwa,
- * pengadilan, jenis narkotika, vonis, denda,
- * dan peran terdakwa.
+ * Class ini menyimpan data perkara, terdakwa, pengadilan, jenis narkotika,
+ * vonis, denda, pasal, peran terdakwa, dan nama hakim.
  */
 public class Putusan extends EntitasHukum implements Printable {
 
@@ -22,24 +21,28 @@ public class Putusan extends EntitasHukum implements Printable {
 
     private static int jumlahDibuat = 0;
 
+    /**
+     * Constructor kosong untuk membuat objek Putusan tanpa data awal.
+     */
     public Putusan() {
+        super();
         jumlahDibuat++;
     }
 
+    /**
+     * Constructor berparameter untuk membuat objek Putusan dengan data utama.
+     *
+     * @param nomorPerkara nomor perkara putusan
+     * @param namaTerdakwa nama terdakwa
+     * @param jenisNarkotika jenis narkotika
+     * @param vonisHukuman vonis hukuman dalam bulan
+     */
     public Putusan(String nomorPerkara, String namaTerdakwa, String jenisNarkotika, int vonisHukuman) {
-        this.nomorPerkara = nomorPerkara;
+        super(nomorPerkara);
         this.namaTerdakwa = namaTerdakwa;
         this.jenisNarkotika = jenisNarkotika;
         this.vonisHukuman = vonisHukuman;
         jumlahDibuat++;
-    }
-
-    public String getNomorPerkara() {
-        return nomorPerkara;
-    }
-
-    public void setNomorPerkara(String nomorPerkara) {
-        this.nomorPerkara = nomorPerkara;
     }
 
     public String getPengadilan() {
@@ -134,16 +137,31 @@ public class Putusan extends EntitasHukum implements Printable {
         return jumlahDibuat;
     }
 
+    /**
+     * Menampilkan nama terdakwa secara ringkas.
+     */
     public void tampilkan() {
         System.out.println(namaTerdakwa);
     }
 
+    /**
+     * Menampilkan data putusan dalam mode ringkas atau detail.
+     *
+     * @param detail true untuk menampilkan detail, false untuk ringkas
+     */
     public void tampilkan(boolean detail) {
         if (detail) {
             System.out.println(this);
+        } else {
+            tampilkan();
         }
     }
 
+    /**
+     * Menentukan kategori hukuman berdasarkan lama vonis.
+     *
+     * @return kategori hukuman
+     */
     public String getKategoriHukuman() {
         if (vonisHukuman < 24) {
             return "Ringan";
@@ -154,14 +172,22 @@ public class Putusan extends EntitasHukum implements Printable {
         }
     }
 
+    /**
+     * Menampilkan informasi lengkap objek Putusan.
+     */
     @Override
     public void printInfo() {
         System.out.println(this);
     }
 
+    /**
+     * Mengubah objek Putusan menjadi format teks.
+     *
+     * @return informasi putusan dalam bentuk String
+     */
     @Override
     public String toString() {
-        return nomorPerkara
+        return getNomorPerkara()
                 + " | "
                 + pengadilan
                 + " | "

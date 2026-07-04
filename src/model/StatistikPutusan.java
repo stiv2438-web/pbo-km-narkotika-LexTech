@@ -3,11 +3,10 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Class untuk menghitung statistik putusan.
- * Statistik meliputi jumlah data,
- * rata-rata vonis, rata-rata denda,
- * distribusi peran terdakwa,
- * dan jenis narkotika terbanyak.
+ * Class untuk menghitung statistik data putusan.
+ * Statistik meliputi jumlah data, rata-rata vonis,
+ * rata-rata denda, jenis narkotika terbanyak,
+ * dan distribusi peran terdakwa.
  */
 public class StatistikPutusan {
 
@@ -17,10 +16,21 @@ public class StatistikPutusan {
     private String jenisNarkotikaTerbanyak;
     private String distribusiPeran;
 
+    /**
+     * Constructor yang langsung menghitung statistik
+     * berdasarkan daftar putusan.
+     *
+     * @param daftar daftar seluruh putusan
+     */
     public StatistikPutusan(ArrayList<Putusan> daftar) {
         hitungSemua(daftar);
     }
 
+    /**
+     * Menghitung seluruh statistik dari daftar putusan.
+     *
+     * @param daftar daftar putusan
+     */
     private void hitungSemua(ArrayList<Putusan> daftar) {
         totalPutusan = daftar.size();
 
@@ -105,6 +115,9 @@ public class StatistikPutusan {
                         + ", Lainnya: " + jumlahPeranLainnya;
     }
 
+    /**
+     * Menampilkan laporan statistik ke console.
+     */
     public void tampilkanLaporan() {
         System.out.println("Total Putusan              : " + totalPutusan);
         System.out.println("Rata-rata Vonis            : " + rataRataVonis + " bulan");
@@ -113,6 +126,11 @@ public class StatistikPutusan {
         System.out.println("Distribusi Peran           : " + distribusiPeran);
     }
 
+    /**
+     * Menghasilkan laporan statistik dalam bentuk teks.
+     *
+     * @return laporan statistik
+     */
     public String getLaporanText() {
         return "Total Putusan              : " + totalPutusan + "\n"
                 + "Rata-rata Vonis            : " + rataRataVonis + " bulan\n"
@@ -120,5 +138,4 @@ public class StatistikPutusan {
                 + "Jenis Narkotika Terbanyak  : " + jenisNarkotikaTerbanyak + "\n"
                 + "Distribusi Peran           : " + distribusiPeran + "\n";
     }
-
 }
