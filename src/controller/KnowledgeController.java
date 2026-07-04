@@ -226,4 +226,4 @@ public class KnowledgeController {
             tambahPutusan(dataLengkap);
         }
     }
-// Commit 1 oleh Ebby// Commit 2 oleh Ebby// Commit 3 oleh Ebby// Commit 4 oleh Ebby
+// Commit 1 oleh Ebby// Commit 2 oleh Ebby// Commit 3 oleh Ebby// Commit 4 oleh Ebby// Commit 5 oleh Ebby
