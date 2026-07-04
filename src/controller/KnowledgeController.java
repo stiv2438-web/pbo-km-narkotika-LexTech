@@ -226,4 +226,4 @@ public class KnowledgeController {
             tambahPutusan(dataLengkap);
         }
     }
-}
+// Commit 1 oleh Ebby
