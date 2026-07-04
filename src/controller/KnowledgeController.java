@@ -116,14 +116,19 @@ public class KnowledgeController {
         return new StatistikPutusan(repo.getDaftarSemua());
     }
 
+
+    /**
+     * Mengekspor laporan statistik putusan ke file TXT.
+     *
+     * @param namaFile nama file tujuan
+     * @return true jika export berhasil, false jika gagal
+     */
     public boolean exportStatistikKeTxt(String namaFile) {
-        try {
+        try (FileWriter writer = new FileWriter(namaFile)) {
             StatistikPutusan statistik = getStatistik();
 
-            FileWriter writer = new FileWriter(namaFile);
             writer.write("=== LAPORAN STATISTIK PUTUSAN ===\n");
             writer.write(statistik.getLaporanText());
-            writer.close();
 
             return true;
         } catch (Exception e) {
@@ -194,8 +199,31 @@ public class KnowledgeController {
                 {"050/Pid.Sus/2024/PN Sby", "Oki Pratama", "Ganja", "18"}
         };
 
-        for (String[] data : dataAwal) {
-            tambahPutusan(data);
+        String[] daftarPengadilan = {
+                "PN Surabaya",
+                "PN Malang",
+                "PN Sidoarjo",
+                "PN Gresik",
+                "PN Mojokerto"
+        };
+
+        for (int i = 0; i < dataAwal.length; i++) {
+            String[] data = dataAwal[i];
+            int vonis = Integer.parseInt(data[3]);
+
+            double denda = 300000000 + ((i % 5) * 100000000);
+
+            String[] dataLengkap = {
+                    data[0],
+                    daftarPengadilan[i % daftarPengadilan.length],
+                    data[1],
+                    data[2],
+                    data[3],
+                    String.valueOf(denda),
+                    tentukanPeranDefault(vonis)
+            };
+
+            tambahPutusan(dataLengkap);
         }
     }
-}
+// Commit 1 oleh Ebby// Commit 2 oleh Ebby// Commit 3 oleh Ebby// Commit 4 oleh Ebby// Commit 5 oleh Ebby// Commit 6 oleh Ebby// Commit 7 oleh Ebby// Commit 8 oleh Ebby// Commit 9 oleh Ebby// Commit 10 oleh Ebby
